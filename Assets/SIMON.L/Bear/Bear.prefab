@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8002781177737431149}
   - component: {fileID: 6190667242539637551}
+  - component: {fileID: 1573663163801727318}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Untagged
@@ -58,8 +59,31 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 16
   m_CollisionDetection: 0
+--- !u!136 &1573663163801727318
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4353144610338149448}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.38
+  m_Height: 4.75
+  m_Direction: 2
+  m_Center: {x: 0, y: 1.54, z: 0}
 --- !u!1001 &643917626067302980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,9 +283,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ba4ee68cb9d46241b8ff1c019eb71ed, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7062443080502605519}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ba4ee68cb9d46241b8ff1c019eb71ed, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3594757706760563378}
   m_SourcePrefab: {fileID: 100100000, guid: 7ba4ee68cb9d46241b8ff1c019eb71ed, type: 3}
 --- !u!1 &301405251453814549 stripped
 GameObject:
@@ -289,29 +310,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!136 &3594757706760563378
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301405251453814549}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.26
-  m_Height: 4.62
-  m_Direction: 2
-  m_Center: {x: 0, y: 1.4, z: 0}
 --- !u!4 &1109326788374814127 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7ba4ee68cb9d46241b8ff1c019eb71ed, type: 3}
