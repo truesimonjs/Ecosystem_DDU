@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 260915706}
   - component: {fileID: 260915708}
   - component: {fileID: 260915707}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Senseing anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 260915705}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -486,13 +486,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3204653338344936580, guid: b81caa80dbf369f4fbaa5b169de359cf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781235386654901853, guid: b81caa80dbf369f4fbaa5b169de359cf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985681695268012290, guid: b81caa80dbf369f4fbaa5b169de359cf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5726101940418707791, guid: b81caa80dbf369f4fbaa5b169de359cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.48
       objectReference: {fileID: 0}
     - target: {fileID: 5726101940418707791, guid: b81caa80dbf369f4fbaa5b169de359cf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.64
+      value: 0.72
       objectReference: {fileID: 0}
     - target: {fileID: 5726101940418707791, guid: b81caa80dbf369f4fbaa5b169de359cf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -529,6 +541,10 @@ PrefabInstance:
     - target: {fileID: 6567808091005369291, guid: b81caa80dbf369f4fbaa5b169de359cf, type: 3}
       propertyPath: m_Name
       value: Prey
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567808091005369291, guid: b81caa80dbf369f4fbaa5b169de359cf, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
