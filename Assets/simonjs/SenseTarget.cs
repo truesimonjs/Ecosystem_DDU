@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SenseTarget : MonoBehaviour
 {
-    private SenseTag[] myTags;
+    public SenseTag[] myTags = {SenseTag.prey };
     public bool Istarget(SenseTag targetTag)
     {
 
