@@ -12,8 +12,11 @@ public class Window_Graph : MonoBehaviour
     private RectTransform LabelTemplateX;
     private RectTransform LabelTemplateY;
 
+    private RectTransform DashTemplateX;
+    private RectTransform DashTemplateY;
 
-    
+
+
 
     public List<Vector2> valueList = new List<Vector2> { new Vector2(1, 5), new Vector2(4, 6) };
 
@@ -27,6 +30,10 @@ public class Window_Graph : MonoBehaviour
         LabelTemplateY = graphContainer.Find("LabelTemplateY").GetComponent<RectTransform>();
 
 
+       DashTemplateX = graphContainer.Find("DashTemplateX").GetComponent<RectTransform>();
+       DashTemplateY = graphContainer.Find("DashTemplateY").GetComponent<RectTransform>();
+
+
         ShowGraph(valueList);
     }
 
@@ -37,6 +44,7 @@ public class Window_Graph : MonoBehaviour
         gameObject.transform.SetParent(graphContainer, false);
         gameObject.GetComponent<Image>().sprite = circleSprite;
         RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
+        
         rectTransform.anchoredPosition = anchorPosition;
         rectTransform.sizeDelta = new Vector2(11, 11);
         rectTransform.anchorMin = new Vector2(0, 0);
@@ -75,6 +83,8 @@ public class Window_Graph : MonoBehaviour
             float yPosition = (ValueList[i].y / yMaximum) * graphHeight;
 
             GameObject CircleGameobject = CreateCircle(new Vector2(xPosition, yPosition));
+            CircleGameobject.AddComponent<ShowCordinates>();
+            CircleGameobject.GetComponent<ShowCordinates>().Cordinates = new Vector2(ValueList[i].x, ValueList[i].y);
 
             if (lastCircleGameObject != null)
             {
@@ -92,13 +102,22 @@ public class Window_Graph : MonoBehaviour
             RectTransform labelX = Instantiate(LabelTemplateX, graphContainer, false);
 
             labelX.gameObject.SetActive(true);
-            labelX.anchoredPosition = new Vector2((CounterForLabelsX / xMaximum) * graphWidth, -5f);
+            labelX.anchoredPosition = new Vector2((CounterForLabelsX / xMaximum) * graphWidth - 7, -5f);
             labelX.GetComponent<Text>().text = CounterForLabelsX.ToString();
+           
+
+
+
+            RectTransform DashX = Instantiate(DashTemplateX, graphContainer, false);
+
+            DashX.gameObject.SetActive(true);
+            DashX.anchoredPosition = new Vector2((CounterForLabelsX / xMaximum) * graphWidth, -5f);
+           
             CounterForLabelsX++;
         }
 
 
-        int seperatorCount = 5;
+        int seperatorCount = 10;
         for (int i = 0; i < seperatorCount; i++)
         {
             RectTransform labelY = Instantiate(LabelTemplateY, graphContainer, false);
@@ -107,7 +126,13 @@ public class Window_Graph : MonoBehaviour
             float normalizedValue = i * 1f / seperatorCount;
             labelY.anchoredPosition = new Vector2(-20, normalizedValue*graphHeight+7);
             labelY.GetComponent<Text>().text = Mathf.RoundToInt(normalizedValue*yMaximum).ToString();
-            
+
+
+            RectTransform DashY = Instantiate(DashTemplateY, graphContainer, false);
+
+            DashY.gameObject.SetActive(true);
+            DashY.anchoredPosition = new Vector2(-20, normalizedValue * graphHeight );
+
         }
         //int CounterForLabelsY = 0;
 
@@ -139,7 +164,7 @@ public class Window_Graph : MonoBehaviour
         rectTransform.anchoredPosition = dotPositionA + dir * distance * .5f;
         rectTransform.localEulerAngles = new Vector3(0, 0, Mathf.Atan2(dir.y, dir.x) * 180 / Mathf.PI);
 
-
+        
     }
 
 }
