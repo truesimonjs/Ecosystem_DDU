@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class SenseTarget : MonoBehaviour
 {
+
     [SerializeField] private SenseTag[] myTags;
+
     public bool Istarget(SenseTag targetTag)
     {
 
