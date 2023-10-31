@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SenseTarget : MonoBehaviour
 {
-    private SenseTag[] myTags;
+    [SerializeField] private SenseTag[] myTags;
     public bool Istarget(SenseTag targetTag)
     {
 
@@ -20,5 +18,5 @@ public class SenseTarget : MonoBehaviour
 }
 public enum SenseTag
 {
-    prey,predator
+    prey, predator, plant
 }
