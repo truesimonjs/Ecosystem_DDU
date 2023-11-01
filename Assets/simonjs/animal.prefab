@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 6617837100790632125}
   - component: {fileID: 7049213543471627278}
   - component: {fileID: 8500324639240909596}
-  - component: {fileID: 8820920862675593285}
   - component: {fileID: 6910400893652097164}
   - component: {fileID: 5929955479515425627}
   - component: {fileID: 5228180800167076761}
+  - component: {fileID: 8879888503508771613}
   m_Layer: 0
   m_Name: animal
   m_TagString: Untagged
@@ -111,19 +111,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &8820920862675593285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6104844068645154398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1c25eb9fb66eb24dbfc1cac924a9833, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 5
 --- !u!195 &6910400893652097164
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -180,8 +167,26 @@ MonoBehaviour:
     waterStorage: 10
     foodEfficiency: 10
     foodStorage: 10
-    BreedingSpeed: 0
+    BreedingSpeed: 10
     watersearch: 0
     foodsearch: 0
   water: 0
   food: 0
+  gameMaster: {fileID: 0}
+--- !u!114 &8879888503508771613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104844068645154398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2a27a2cc7141734abcd5c1cdfb25acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 15
+  detectable: []
+  targets: []
+  fov: 18.7
+  p_tag: 0
