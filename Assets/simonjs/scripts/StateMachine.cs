@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    public int food;
-    public string myState;
+    
     [SerializeField]
     public IState currentState;
     //
@@ -33,7 +32,7 @@ public class StateMachine : MonoBehaviour
         currentState.ExitState();
         currentState = state;
         currentState.EnterState();
-        myState = state.ToString();
+     
     }
 
 }

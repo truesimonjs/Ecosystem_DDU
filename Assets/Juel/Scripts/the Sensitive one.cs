@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,11 +11,7 @@ public class theSensitiveone : MonoBehaviour, ISense
     public float fov = 30;
     public SenseTag p_tag;
 
-    
-    void Update()
-    {
-        UseSense(SenseTag.prey);
-    }
+
 
 
     public GameObject[] UseSense(SenseTag tag)
@@ -32,8 +27,8 @@ public class theSensitiveone : MonoBehaviour, ISense
                 targets.Remove(target);
             }
         }
-            
-            return targets.ToArray();
+
+        return targets.ToArray();
     }
 
     public void InRange()
@@ -54,6 +49,7 @@ public class theSensitiveone : MonoBehaviour, ISense
     {
         Vector3 direction = target.transform.position - transform.position;
         direction.y = 0;
+
         return Vector3.Angle(direction, transform.forward) <= FOV;
     }
 
@@ -64,10 +60,10 @@ public class theSensitiveone : MonoBehaviour, ISense
         RaycastHit hit;
         Physics.Raycast(ray, out hit);
 
-       
+
         return hit.transform.gameObject != target;
     }
-    
+
     private void OnDrawGizmos()
     {
         //shows ray from eyes to index 0 of targets (targets is a list of all things it can currently see)
@@ -83,5 +79,5 @@ public class theSensitiveone : MonoBehaviour, ISense
         Vector3 left = Quaternion.Euler(0, -fov, 0) * transform.forward;
         Gizmos.DrawRay(this.transform.position, left * range);
     }
-    
+
 }

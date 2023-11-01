@@ -7,6 +7,7 @@ public class EatingState : MonoBehaviour, IState
     private StateMachine statemachine;
     private NavMeshAgent agent;
     private AnimalStats animalStats;
+
     //
     private Vector3 targetPos;
     public GameObject food;
@@ -18,6 +19,7 @@ public class EatingState : MonoBehaviour, IState
     }
     public void EnterState()
     {
+
         targetPos = food.transform.position;
         agent.SetDestination(targetPos);
     }
@@ -29,14 +31,21 @@ public class EatingState : MonoBehaviour, IState
 
     public void StateUpdate()
     {
-        agent.SetDestination(targetPos);
-        if (Vector3.Distance(this.transform.position, targetPos) <= 2)
+        if (food.activeSelf)
         {
-            if (food.GetComponent<SenseTarget>().Istarget(SenseTag.plant))
+            agent.SetDestination(targetPos);
+            if (Vector3.Distance(this.transform.position, targetPos) <= 2)
             {
-                food.GetComponent<PlantScript>().Devour(gameObject);
-                statemachine.ChangeState(statemachine.wanderstate);
+                if (food.GetComponent<SenseTarget>().Istarget(SenseTag.plant))
+                {
+                    food.GetComponent<PlantScript>().Devour(gameObject);
+                    statemachine.ChangeState(statemachine.wanderstate);
+                }
             }
+        }
+        else
+        {
+            statemachine.ChangeState(statemachine.wanderstate);
         }
     }
 }
