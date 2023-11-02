@@ -40,19 +40,23 @@ public class AnimalStats : MonoBehaviour
             NextBirth = Time.time + birthCd;
 
             AnimalStats baby = Instantiate(gameMaster.animalPrefab).GetComponent<AnimalStats>();
+            baby.transform.position = transform.position;
               baby.food = this.food / 2;
               this.food = food / 2;
             baby.dna = new AnimalDna(dna);
             baby.dna.mutate();
         }
     }
-    public void Feed(float amount)
+    public int Feed(int amount)
     {
-        food += amount * dna.foodEfficiency / 10;
+        food += amount * (dna.foodEfficiency / 10);
         if (food > maxFood)
         {
+           float Leftover = (food - maxFood)/(dna.foodEfficiency/10);            
             food = maxFood;
+            return (int)Leftover;
         }
+        return 0;
     }
 
 }

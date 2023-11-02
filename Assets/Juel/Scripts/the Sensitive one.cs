@@ -67,10 +67,10 @@ public class theSensitiveone : MonoBehaviour, ISense
     private void OnDrawGizmos()
     {
         //shows ray from eyes to index 0 of targets (targets is a list of all things it can currently see)
-        if (detectable.Length > 0)
+        if (targets.Count > 0)
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawRay(this.transform.position, detectable[0].transform.position - transform.position);
+            Gizmos.DrawRay(this.transform.position, targets[0].transform.position - transform.position);
         }
         //2 rays that show the fov of the eyes
         Vector3 right = Quaternion.Euler(0, fov, 0) * transform.forward;
