@@ -39,7 +39,7 @@ public class AnimalStats : MonoBehaviour
         {
             NextBirth = Time.time + birthCd;
 
-            AnimalStats baby = Instantiate(gameMaster.animalPrefab).GetComponent<AnimalStats>();
+            AnimalStats baby = Instantiate(gameMaster.animalPrefab,gameMaster.animalHolder.transform,false).GetComponent<AnimalStats>();
             baby.transform.position = transform.position;
               baby.food = this.food / 2;
               this.food = food / 2;

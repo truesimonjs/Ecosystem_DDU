@@ -6,6 +6,7 @@ public class GameMaster : MonoBehaviour
 {
     public float timescale;
     public GameObject animalPrefab;
+    public GameObject animalHolder;
     private void Start()
     {
         Time.timeScale = timescale;
