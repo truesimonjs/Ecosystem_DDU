@@ -134,17 +134,7 @@ public class Window_Graph : MonoBehaviour
             DashY.anchoredPosition = new Vector2(-20, normalizedValue * graphHeight );
 
         }
-        //int CounterForLabelsY = 0;
-
-        //while (CounterForLabelsY / yMaximum <= 1)
-        //{
-        //    RectTransform labelY = Instantiate(LabelTemplateY, graphContainer, false);
-
-        //    labelY.gameObject.SetActive(true);
-        //    labelY.anchoredPosition = new Vector2(-20, (CounterForLabelsY / yMaximum) * graphHeight);
-        //    labelY.GetComponent<Text>().text = CounterForLabelsY.ToString();
-        //    CounterForLabelsY++;
-        //}
+        
     }
 
 
