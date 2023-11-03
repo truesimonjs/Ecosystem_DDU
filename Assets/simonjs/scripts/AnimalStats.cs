@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AnimalStats : MonoBehaviour
 {
@@ -8,8 +9,10 @@ public class AnimalStats : MonoBehaviour
     private int maxWater;
     private int maxFood;
     private float birthCd;
+
     //stats
     public float water;
+    private float babyFood;
     public float food;
     //
     private float NextBirth;
@@ -24,6 +27,7 @@ public class AnimalStats : MonoBehaviour
 
         birthCd = (100 / dna.BreedingSpeed * dna.mass * 1.1f);
         NextBirth = Time.time + birthCd;
+        babyFood = 0;
        
 
     }
@@ -39,10 +43,11 @@ public class AnimalStats : MonoBehaviour
         {
             NextBirth = Time.time + birthCd;
 
-            AnimalStats baby = Instantiate(gameMaster.animalPrefab,gameMaster.animalHolder.transform,false).GetComponent<AnimalStats>();
-            baby.transform.position = transform.position;
-              baby.food = this.food / 2;
-              this.food = food / 2;
+            AnimalStats baby = Instantiate(gameMaster.animalPrefab,gameMaster.transform.position,Quaternion.identity,gameMaster.animalHolder.transform).GetComponent<AnimalStats>();
+            baby.food = babyFood;
+            babyFood = 0;
+            baby.GetComponent<NavMeshAgent>().Warp(transform.position);
+              
             baby.dna = new AnimalDna(dna);
             baby.dna.mutate();
         }
@@ -52,8 +57,12 @@ public class AnimalStats : MonoBehaviour
         food += amount * (dna.foodEfficiency / 10);
         if (food > maxFood)
         {
-           float Leftover = (food - maxFood)/(dna.foodEfficiency/10);            
+            babyFood += (food - maxFood);
+           float Leftover = (babyFood - maxFood)/(dna.foodEfficiency/10);
+            babyFood = maxFood;
             food = maxFood;
+            
+           
             return (int)Leftover;
         }
         return 0;
@@ -93,8 +102,8 @@ public class AnimalDna
     }
     public void mutate()
     {
-        statsArray[Random.Range(0, statsArray.Length - 1)] -= 1;
-        statsArray[Random.Range(0, statsArray.Length - 1)] += 1;
+        statsArray[Random.Range(0, statsArray.Length )] -= 1;
+        statsArray[Random.Range(0, statsArray.Length)] += 1;
         statUpdate();
     }
 

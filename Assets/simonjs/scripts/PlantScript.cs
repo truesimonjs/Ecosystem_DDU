@@ -17,7 +17,7 @@ public class PlantScript : MonoBehaviour
             counter += 1;
             float leftOver = caller.GetComponent<AnimalStats>().Feed(food);
             Invoke("activate", cd*(leftOver/food));
-            Debug.Log(cd*(leftOver/food));
+           
             gameObject.SetActive(false);
         }
     }

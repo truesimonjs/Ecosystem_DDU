@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food: 10
-  cd: 30
+  cd: 60
   counter: 0
 --- !u!136 &7337433229374800393
 CapsuleCollider:
