@@ -19,10 +19,10 @@ public class Window_Graph : MonoBehaviour
 
 
 
-    public List<Vector2> valueList = new List<Vector2> { new Vector2(1, 5), new Vector2(4, 6) };
+    //public List<Vector2> valueList = new List<Vector2> { new Vector2(1, 5), new Vector2(4, 6) };
 
 
-    public void TakeList()
+    public void TakeList(List<Vector2> valueList)
     {
         
 
