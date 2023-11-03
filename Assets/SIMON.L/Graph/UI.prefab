@@ -140,7 +140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 4.4400024, y: 4.2400055}
+  m_AnchoredPosition: {x: 4.4400024, y: -0.1000061}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3586296184468604697
@@ -1011,13 +1011,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circleSprite: {fileID: 21300000, guid: 45b1b85f8cc62dd4ea548555e2b1d3ac, type: 3}
   dotsContainer: {fileID: 0}
-  valueList:
-  - {x: 1, y: 5}
-  - {x: 2.51, y: 6}
-  - {x: 4.49, y: 6}
-  - {x: 5.2, y: 6}
-  - {x: 20, y: 8}
-  - {x: 45, y: 8}
 --- !u!1 &6793692692694725570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,7 +1318,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 4.4400024, y: 4.2400055}
+  m_AnchoredPosition: {x: 4.4400024, y: -0.1000061}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &5162423611830150597
