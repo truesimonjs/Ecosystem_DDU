@@ -36,7 +36,7 @@ public class WanderState : MonoBehaviour, IState
         {
 
             NavMeshHit hit;
-            Vector3 PositionChange = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+            Vector3 PositionChange = new Vector3(Random.Range(-40, 40), 0, Random.Range(-40, 40));
 
             if (!NavMesh.SamplePosition(gameObject.transform.position + PositionChange, out hit, 2, NavMesh.AllAreas))
             {

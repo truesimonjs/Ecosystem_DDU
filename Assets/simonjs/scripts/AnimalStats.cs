@@ -21,13 +21,13 @@ public class AnimalStats : MonoBehaviour
     {
         gameMaster = GameObject.FindAnyObjectByType<GameMaster>();
         maxWater = dna.waterStorage * dna.mass;
-        water = maxWater;
         maxFood = dna.foodStorage * dna.mass;
-        food = maxFood;
-
         birthCd = (100 / dna.BreedingSpeed * dna.mass * 1.1f);
         NextBirth = Time.time + birthCd;
         babyFood = 0;
+       // food = Mathf.Max(1, food);
+        
+        gameMaster.addBear(this);
        
 
     }
@@ -37,6 +37,8 @@ public class AnimalStats : MonoBehaviour
         // water -= 1 * Time.deltaTime;
         if (food <= 0 || water <= 0)
         {
+            
+            gameMaster.removeBear(this);
            Destroy(this.gameObject);
         }
         if (Time.time >= NextBirth)
@@ -50,16 +52,24 @@ public class AnimalStats : MonoBehaviour
               
             baby.dna = new AnimalDna(dna);
             baby.dna.mutate();
+            
         }
     }
     public int Feed(int amount)
     {
+        float Leftover = 0;
         food += amount * (dna.foodEfficiency / 10);
         if (food > maxFood)
         {
+
             babyFood += (food - maxFood);
-           float Leftover = (babyFood - maxFood)/(dna.foodEfficiency/10);
-            babyFood = maxFood;
+            Leftover = 0;
+            if (babyFood > maxFood)
+            {
+                Leftover = (babyFood - maxFood) / (dna.foodEfficiency / 10);
+                babyFood = maxFood;
+            }
+          
             food = maxFood;
             
            
@@ -90,7 +100,7 @@ public class AnimalDna
     }
     public AnimalDna(AnimalDna old)
     {
-        statsArray = old.statsArray;
+        statsArray = (int[])old.statsArray.Clone();
         statUpdate();
     }
     public void statUpdate()

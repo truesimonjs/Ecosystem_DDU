@@ -48,6 +48,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5228180800167076761, guid: 8681ea3148bec7740ab8fad37f9999d4, type: 3}
+      propertyPath: food
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228180800167076761, guid: 8681ea3148bec7740ab8fad37f9999d4, type: 3}
+      propertyPath: water
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6104844068645154398, guid: 8681ea3148bec7740ab8fad37f9999d4, type: 3}
       propertyPath: m_Name
       value: animal (1) Variant
